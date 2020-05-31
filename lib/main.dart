@@ -52,8 +52,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            Container(
+              child: Image.asset('assets/img/a.png'),
+            ),
             Text(
-              'You have pushed the button this many times:',
+              'You have pushed times:',
+              style: TextStyle(
+                fontFamily: 'ChelseaMarket',
+                fontSize: 20
+              ),
             ),
             Text(
               '$_counter',

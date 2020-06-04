@@ -32,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // vars
   int _counter = 0;
+  int _index = 0;
   RandomColor randomColor = RandomColor(); 
 
   // functions
@@ -45,6 +46,46 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     Color color = randomColor.randomColor();
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(top:40),
+              child: Container(
+                child: Text('Meu atalho 1')
+              )
+            ),
+          
+            Container(
+              child: Text('Meu atalho 2')
+            ),
+            Container(
+              child: Text('Meu atalho 3')
+            ),
+          ],
+        )
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (int index){
+          setState(() {
+            _index = index;
+          });
+        },
+        currentIndex: _index,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.accessibility),
+            title: Text('icon 1'),
+            activeIcon: Icon(Icons.accessibility, color: Colors.red)
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.print),
+            title: Text('icon 1'),
+            activeIcon: Icon(Icons.print, color: Colors.red)
+          )
+        ]
+      ),
       appBar: AppBar(
         title: Text(widget.title),
       ),
